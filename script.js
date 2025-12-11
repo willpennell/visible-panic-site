@@ -1,14 +1,30 @@
-let lastScrollPosition = 0;
-let totalRotation = 0;
+// Mouse pixel effect
+let lastPixelTime = 0;
+document.addEventListener('mousemove', (e) => {
+    // Throttle pixel creation to reduce density
+    const now = Date.now();
+    if (now - lastPixelTime < 30) return;
+    lastPixelTime = now;
 
-window.addEventListener('scroll', () => {
-    const currentScrollPosition = window.pageYOffset;
-    const scrollDelta = currentScrollPosition - lastScrollPosition;
+    // Create 1-3 random pixels per mouse move
+    const pixelCount = Math.floor(Math.random() * 3) + 1;
 
-    totalRotation += scrollDelta * 0.5;
+    for (let i = 0; i < pixelCount; i++) {
+        const pixel = document.createElement('div');
+        pixel.className = 'mouse-pixel';
 
-    const logo = document.getElementById('logo');
-    logo.style.transform = `rotate(${totalRotation}deg)`;
+        // Smaller random offset from cursor position (reduced from 40 to 25)
+        const offsetX = (Math.random() - 0.5) * 25;
+        const offsetY = (Math.random() - 0.5) * 25;
 
-    lastScrollPosition = currentScrollPosition;
+        pixel.style.left = (e.pageX + offsetX) + 'px';
+        pixel.style.top = (e.pageY + offsetY) + 'px';
+
+        document.body.appendChild(pixel);
+
+        // Remove pixel after animation
+        setTimeout(() => {
+            pixel.remove();
+        }, 600);
+    }
 });

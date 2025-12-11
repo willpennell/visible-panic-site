@@ -5,15 +5,39 @@
 }
 
 body {
-    background-color: #1a1a1a;
+    background-color: #000000;
     color: #ffffff;
-    font-family: 'Arial', sans-serif;
+    font-family: 'M PLUS Code Latin', monospace;
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.mouse-pixel {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #ffffff;
+    pointer-events: none;
+    animation: pixelFade 0.6s ease-out forwards;
+    z-index: 1;
+}
+
+@keyframes pixelFade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
 }
 
 header {
     padding: 60px 20px;
     text-align: center;
+    position: relative;
+    z-index: 10;
 }
 
 .logo-container {
@@ -30,7 +54,16 @@ header {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    animation: spin 10s linear infinite;
+}
+
+.tagline {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #cccccc;
+    letter-spacing: 1px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @keyframes spin {
@@ -52,15 +85,18 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
+    position: relative;
+    z-index: 10;
 }
 
 .debut-event {
     text-align: center;
     padding: 60px 20px;
-    background-color: #0f0f0f;
+    background-color: #000000;
     margin-bottom: 60px;
-    border-radius: 10px;
+    border: 1px solid #ffffff;
 }
+
 
 .debut-event h2 {
     font-size: 2.5rem;
@@ -71,15 +107,33 @@ main {
 .debut-event .date {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    color: #ff6b6b;
+    color: #00ff00;
     font-weight: bold;
 }
 
 .debut-event .location {
     font-size: 1.3rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     color: #cccccc;
-    font-style: italic;
+}
+
+.debut-event a {
+    display: inline-block;
+    margin-bottom: 40px;
+    padding: 12px 30px;
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.debut-event a:hover {
+    background-color: #00ff00;
+    border-color: #00ff00;
+    color: #000000;
 }
 
 .poster-placeholder {
@@ -108,73 +162,117 @@ main {
 }
 
 .ethos p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     max-width: 800px;
     margin: 0 auto;
     color: #cccccc;
 }
 
-.contact {
-    padding: 60px 20px;
-    text-align: center;
-    margin-top: 60px;
-}
-
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    letter-spacing: 3px;
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.social-icon {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #2a2a2a;
-    border-radius: 50%;
-    color: #ffffff;
-    transition: all 0.3s ease;
-    border: 2px solid #3a3a3a;
-}
-
-.social-icon:hover {
-    background-color: #ff6b6b;
-    border-color: #ff6b6b;
-    transform: scale(1.1);
-}
-
-.social-icon svg {
-    width: 30px;
-    height: 30px;
-}
-
 footer {
     text-align: center;
-    padding: 40px 20px;
-    background-color: #0f0f0f;
+    padding: 60px 20px 40px;
+    background-color: #000000;
     margin-top: 80px;
-    border-top: 1px solid #333333;
+    border-top: 1px solid #ffffff;
+    position: relative;
+    z-index: 10;
 }
 
-footer p {
-    color: #888888;
-    font-size: 0.9rem;
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.newsletter {
+    flex: 1;
+    text-align: left;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px 15px;
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-family: 'M PLUS Code Latin', monospace;
+    font-size: 0.85rem;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: #00ff00;
+}
+
+.newsletter-form input::placeholder {
+    color: #666666;
+}
+
+.newsletter-form button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    color: #000000;
+    font-family: 'M PLUS Code Latin', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.newsletter-form button:hover {
+    background-color: #00ff00;
+    border-color: #00ff00;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex: 1;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.footer-links a:hover {
+    color: #00ff00;
+}
+
+.copyright {
+    color: #666666;
+    font-size: 0.85rem;
+    flex: 1;
+    text-align: right;
+    white-space: nowrap;
 }
 
 @media (max-width: 768px) {
     .logo-circle {
         width: 180px;
         height: 180px;
+    }
+
+    .tagline {
+        font-size: 0.95rem;
+        margin-top: 20px;
     }
 
     .debut-event h2 {
@@ -193,17 +291,41 @@ footer p {
         font-size: 2rem;
     }
 
-    .contact h2 {
-        font-size: 2rem;
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
     }
 
-    .social-icon {
-        width: 50px;
-        height: 50px;
+    .newsletter {
+        text-align: center;
+        width: 100%;
     }
 
-    .social-icon svg {
-        width: 25px;
-        height: 25px;
+    .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
+
+    .footer-links {
+        gap: 20px;
+        width: 100%;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .copyright {
+        text-align: center;
+        width: 100%;
     }
 }
