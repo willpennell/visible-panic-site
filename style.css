@@ -7,7 +7,7 @@
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'M PLUS Code Latin', monospace;
+    font-family: 'Manrope', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -46,14 +46,10 @@ header {
     align-items: center;
 }
 
-.logo-circle {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.logo {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
 }
 
 .tagline {
@@ -64,21 +60,6 @@ header {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.logo-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 main {
@@ -136,18 +117,13 @@ main {
     color: #000000;
 }
 
-.poster-placeholder {
+.poster {
     width: 100%;
     max-width: 600px;
-    height: 800px;
+    height: auto;
     margin: 0 auto;
-    background-color: #2a2a2a;
-    border: 2px dashed #555555;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: #666666;
+    display: block;
+    border: 1px solid #ffffff;
 }
 
 .ethos {
@@ -203,7 +179,7 @@ footer {
     background-color: #000000;
     border: 2px solid #ffffff;
     color: #ffffff;
-    font-family: 'M PLUS Code Latin', monospace;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.85rem;
     width: 200px;
     transition: border-color 0.3s ease;
@@ -223,7 +199,7 @@ footer {
     background-color: #ffffff;
     border: 2px solid #ffffff;
     color: #000000;
-    font-family: 'M PLUS Code Latin', monospace;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.85rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -265,9 +241,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .logo-circle {
-        width: 180px;
-        height: 180px;
+    .logo {
+        max-width: 250px;
     }
 
     .tagline {
@@ -283,9 +258,6 @@ footer {
         font-size: 1.4rem;
     }
 
-    .poster-placeholder {
-        height: 600px;
-    }
 
     .ethos h2 {
         font-size: 2rem;
